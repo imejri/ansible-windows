@@ -1,0 +1,24 @@
+---
+- name: Create a user named issam on Windows 11 and ensure profile creation
+  hosts: windows
+  tasks:
+    - name: Create user issam
+      ansible.windows.win_user:
+        name: issam
+        password: 'Portos@25091977$$'
+        groups:
+          - S-1-5-32-544
+        state: present
+        password_never_expires: yes
+        update_password: on_create
+
+    - name: Verify user creation
+      win_shell: net user issam
+      register: user_creation
+
+    - name: Display user creation result
+      debug:
+        msg: "{{ user_creation.stdout }}"
+
+
+

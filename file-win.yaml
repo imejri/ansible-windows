@@ -1,0 +1,16 @@
+---
+- name: Create a file on the Windows 11 desktop
+  hosts: windows
+  tasks:
+    - name: Ensure the Desktop folder path
+      win_shell: echo $env:USERPROFILE\Desktop
+      register: desktop_path
+
+    - name: Strip newlines and ensure valid path
+      set_fact:
+        clean_desktop_path: "{{ desktop_path.stdout | trim }}"
+
+    - name: Create a file on the desktop
+      win_file:
+        path: "{{ clean_desktop_path }}\\example.txt"
+        state: touch

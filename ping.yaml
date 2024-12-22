@@ -1,0 +1,7 @@
+---
+- name: Test WinRM connection
+  hosts: windows
+  tasks:
+    - name: Ping Windows machine
+      ansible.windows.win_ping:
+

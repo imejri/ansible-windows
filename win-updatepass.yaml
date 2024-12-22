@@ -1,0 +1,9 @@
+---
+- name: Reset password for user issam
+  hosts: windows
+  tasks:
+    - name: Reset password
+      ansible.windows.win_user:
+        name: issam
+        password: 'AnotherSecurePassword123!'
+        update_password: always

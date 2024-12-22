@@ -1,0 +1,2 @@
+[windows]
+win11 ansible_host=192.168.196.130 ansible_user=imejr ansible_password=Portos@25091977 ansible_port=5985 ansible_connection=winrm ansible_winrm_transport=basic ansible_winrm_server_cert_validation=ignore
