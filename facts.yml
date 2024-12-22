@@ -1,7 +1,8 @@
 ---
 - name: Gather and store facts
   hosts: windows
-  gather_facts: true
+  gather_facts: yes
+  become: no
   tasks:
     - name: Copy facts to file
       ansible.windows.win_copy:
